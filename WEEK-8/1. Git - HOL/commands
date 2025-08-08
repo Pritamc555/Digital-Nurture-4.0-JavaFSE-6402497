@@ -1,1 +1,154 @@
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ git version
+git version 2.46.1.windows.1
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ git config --global --list
+user.name=Pritam
+user.email=pritamchaudhari352003@gmail.com
+user.namw=Pritam
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+core.editor=notepad++.exe -multiInst -nosession
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ notepad++
+bash: notepad++: command not found
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ alias notepad++ = "C:\Windows\notepad.exe"
+bash: alias: notepad++: not found
+bash: alias: =: not found
+bash: alias: C:\Windows\notepad.exe: not found
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ notepad++
+bash: notepad++: command not found
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ alias notepad++ = "C:\Windows\notepad++.exe"
+bash: alias: notepad++: not found
+bash: alias: =: not found
+bash: alias: C:\Windows\notepad++.exe: not found
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ alias notepad++ = ^C
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ nano ~/.bashrc
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ notepad
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ alias np='notepad++'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ git config --global core.editor "notepad++ -multiInst -nosession"
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ git config -e --global
+hint: Waiting for your editor to close the file... notepad++ -multiInst -nosession: line 1: notepad++: command not found
+error: there was a problem with the editor 'notepad++ -multiInst -nosession'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ notepad++
+bash: notepad++: command not found
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ notepad
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ mkdir GitDemo1
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ cd GitDemo1
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1
+$ git init
+Initialized empty Git repository in C:/Users/hP/GitDemo1/.git/
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ ls -a
+./  ../  .git/
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ echo "Welcome to Git Demo" > welcome1.txt
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ ls
+welcome1.txt
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ cat welcome.txt
+cat: welcome.txt: No such file or directory
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ cat welcome1.txt
+Welcome to Git Demo
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        welcome1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ git add welcome1.txt
+warning: in the working copy of 'welcome1.txt', LF will be replaced by CRLF the next time Git touches it
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ git commit -m "Initial commit : Added welcome1.txt"
+[master (root-commit) ea9bc5d] Initial commit : Added welcome1.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 welcome1.txt
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ git pull origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ git remote add origin <https://gitlab.com/pritamchaudhari352003-group/gitdemo>
+bash: syntax error near unexpected token `newline'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ git remote add origin https://gitlab.com/pritamchaudhari352003-group/gitdemo
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ git pull origin master --allow-unrelated-histories
+
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$ git push origin master
+warning: redirecting to https://gitlab.com/pritamchaudhari352003-group/gitdemo.git/
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 257 bytes | 257.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: To create a merge request for master, visit:
+remote:   https://gitlab.com/pritamchaudhari352003-group/gitdemo/-/merge_requests/new?merge_request%5Bsource_branch%5D=master
+remote:
+To https://gitlab.com/pritamchaudhari352003-group/gitdemo
+ * [new branch]      master -> master
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/GitDemo1 (master)
+$
 
