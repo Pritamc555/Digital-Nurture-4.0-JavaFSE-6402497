@@ -1,0 +1,169 @@
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ mkdir myproj2
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ cd myproj2
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2
+$ git checkout master
+fatal: not a git repository (or any of the parent directories): .git
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2
+$ git init
+Initialized empty Git repository in C:/Users/hP/myproj2/.git/
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (master)
+$ git checkout master
+error: pathspec 'master' did not match any file(s) known to git
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (master)
+$ git pull origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (master)
+$ git checkout -b GitWork
+Switched to a new branch 'GitWork'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ echo "<msg>Hello from GitWork branch</msg>" > hello.xml
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ echo "<msg>Hello from GitWork branch - updated content</msg>" > hello.xml
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git status
+On branch GitWork
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git add hello.xml
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git commit -m "update hello.xml in GitWork branch"
+[GitWork (root-commit) 65296c5] update hello.xml in GitWork branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git checkout master
+error: pathspec 'master' did not match any file(s) known to git
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ echo "<msg>Hello from master branch</msg>" > hello.xml
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git add hello.xml
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git commit -m "Add hello.xml in master branch"
+[GitWork 045a502] Add hello.xml in master branch
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git log --oneline --graph --decorate --all
+* 045a502 (HEAD -> GitWork) Add hello.xml in master branch
+* 65296c5 update hello.xml in GitWork branch
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git diff master..GitWork
+fatal: ambiguous argument 'master..GitWork': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git config --global diff.tool p4merge
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git config --global difftool.prompt false
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git difftool master..GitWork
+fatal: ambiguous argument 'master..GitWork': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git merge GitWork
+Already up to date.
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ notepad h nttepad hello.xml
+
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ notepad hello.xml
+
+
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git mergetool
+
+This message is displayed because 'merge.tool' is not configured.
+See 'git mergetool --tool-help' or 'git help config' for more details.
+'git mergetool' will now attempt to use one of the following tools:
+opendiff kdiff3 tkdiff xxdiff meld tortoisemerge gvimdiff diffuse diffmerge ecmerge p4merge araxis bc codecompare smerge emerge vimdiff nvimdiff
+No files need merging
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git add hello.xml
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git commit -m "Resolve merge conflict in hello.xml"
+On branch GitWork
+nothing to commit, working tree clean
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git status
+On branch GitWork
+nothing to commit, working tree clean
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git commit -m "Ignore merge backup files"
+On branch GitWork
+nothing to commit, working tree clean
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git branch -a
+* GitWork
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git branch -d GitWork
+error: cannot delete branch 'GitWork' used by worktree at 'C:/Users/hP/myproj2'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git push origin --delete GitWork
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$ git log --oneline --graph --decorate
+* 045a502 (HEAD -> GitWork) Add hello.xml in master branch
+* 65296c5 update hello.xml in GitWork branch
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj2 (GitWork)
+$
