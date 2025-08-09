@@ -1,0 +1,55 @@
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~
+$ cd myproj
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git branch
+* master
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git checkout master
+Already on 'master'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git reset --hard
+HEAD is now at 7bc8464 Merge GitNewBranch into master
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git branch -a
+* master
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git pull origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git checkout master
+Already on 'master'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git add .
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git commit -m "Commited message"
+On branch master
+nothing to commit, working tree clean
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git push origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$
