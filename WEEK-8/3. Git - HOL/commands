@@ -1,0 +1,81 @@
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git checkout -b GitNewBranch
+Switched to a new branch 'GitNewBranch'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (GitNewBranch)
+$ git branch
+* GitNewBranch
+  master
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (GitNewBranch)
+$ git branch -a
+* GitNewBranch
+  master
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (GitNewBranch)
+$ git checkout GitNewBranch
+Already on 'GitNewBranch'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (GitNewBranch)
+$ echo "Hello from GitNewBranch" > branchfile1.txt
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (GitNewBranch)
+$ echo "This is second file" > branchfile2.txt
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (GitNewBranch)
+$ git add branchfile1.txt branchfile2.txt
+warning: in the working copy of 'branchfile1.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'branchfile2.txt', LF will be replaced by CRLF the next time Git touches it
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (GitNewBranch)
+$ git commit -m "add branchfile1,txt and branchfile2.txt in GitNewBranch"
+[GitNewBranch 9e48c2b] add branchfile1,txt and branchfile2.txt in GitNewBranch
+ 2 files changed, 2 insertions(+)
+ create mode 100644 branchfile1.txt
+ create mode 100644 branchfile2.txt
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (GitNewBranch)
+$ git status
+On branch GitNewBranch
+nothing to commit, working tree clean
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (GitNewBranch)
+$ git checkout master
+Switched to branch 'master'
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git diff --name-only master..GitNewBranch
+branchfile1.txt
+branchfile2.txt
+      1 [sig] bash 328! sigpacket::process: Suppressing signal 18 to win32 process (pid 12676)
+              warning: unable to rmdir 'C:\Users\hP\AppData\Local\Temp/git-blob-a32668': Directory not empty
+
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git merge --no-ff GitNewBranch -m "Merge GitNewBranch into master"
+Merge made by the 'ort' strategy.
+ branchfile1.txt | 1 +
+ branchfile2.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 branchfile1.txt
+ create mode 100644 branchfile2.txt
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git log --oneline --graph --decorate
+*   7bc8464 (HEAD -> master) Merge GitNewBranch into master
+|\
+| * 9e48c2b (GitNewBranch) add branchfile1,txt and branchfile2.txt in GitNewBranch
+|/
+* a5cce2a Add .gitignore to ignore log files and folders
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git branch -d GitNewBranch
+Deleted branch GitNewBranch (was 9e48c2b).
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+hP@LAPTOP-5MJP1V36 MINGW64 ~/myproj (master)
+$
